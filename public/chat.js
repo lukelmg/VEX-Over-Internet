@@ -1,18 +1,26 @@
 //Make connection
 var socket = io.connect('http://localhost:8000/');
 
-//Query DOM
+var gamepadState = 0;
 
-var message = document.getElementById('message');
-    handle = document.getElementById('handle');
-    btn = document.getElementById('send');
-    output = document.getElementById('output');
+gamepadState = {
+  x: 0,
+  y: 0
+}
 
-//emit events
-
-btn.addEventListener('click', function(){
+function update() {
+  const gamepads = navigator.getGamepads();
+  if (gamepads[0]) {
+    gamepadState = {
+      x: parseInt(gamepads[0].axes[0].toFixed(3) * 127),
+      y: parseInt(gamepads[0].axes[1].toFixed(3) * -127)
+    }
+  }
   socket.emit('chat', {
-    message: message.value,
-    handle: handle.value
+   x: gamepadState.x,
+   y: gamepadState.y
   });
-});
+  window.requestAnimationFrame(update);
+}
+
+window.requestAnimationFrame(update);

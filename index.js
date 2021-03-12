@@ -24,6 +24,6 @@ io.on('connection', function(socket){
   console.log('made connection', socket.id);
 
   socket.on('chat', function(data){
-    console.log(data.message);
+    console.log('X:'+ data.x + '  Y:' + data.y);
   });
 });
