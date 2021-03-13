@@ -16,6 +16,7 @@ function update() {
       y: parseInt(gamepads[0].axes[1].toFixed(3) * -127)
     }
   }
+  document.getElementById('axis').innerHTML = 'X:' + gamepadState.x + '  Y:' + gamepadState.y;
   socket.emit('chat', {
    x: gamepadState.x,
    y: gamepadState.y

@@ -6,14 +6,21 @@
     <script src="https://cdn.socket.io/3.1.3/socket.io.min.js" integrity="sha384-cPwlPLvBTa3sKAgddT6krw0cJat7egBga3DJepJyrLl4Q9/5WLra3rrnMcyTyOnh" crossorigin="anonymous"></script>
   </head>
   <body>
-    <div id="mario-chat">
-      <div id="chat-window">
-        <div id="output"></div>
-      </div>
-      <input id="handle" type="text" placeholder="Handle"/>
-      <input id="message" type="text" placeholder="Message"/>
-      <button id="send">Send</button>
-    </div>
-    <script src="/chat.js"></script>
+    <h1 id="axis"/>
+    <script src="/controller.js"></script>
   </body>
 </html>
+
+<style>
+
+ body {
+   background-color:#1e1e1e;
+ }
+
+ h1 {
+   font-family: Arial;
+   font-size:20vh;
+   color:white;
+ }
+
+ </style>
